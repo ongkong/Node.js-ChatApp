@@ -1,0 +1,96 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+div{
+    display: block;
+}
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 0.85em;
+}
+.splash{
+    height: inherit;
+    width: 100%;
+}
+.header{
+    position: relative;
+    top:0;
+    width: 100%;
+    text-align: center;
+    font-size: 4em;
+    font-weight: bold;
+    border-bottom: .1em solid black;
+}
+#display{
+    height:90%;
+    text-align: left;
+    font-size: 1.5em;
+    overflow: scroll;
+    padding: 2em 3em 3em;
+
+}
+.input{
+    position:absolute;
+    bottom: 0px;
+    width:100%;
+
+
+}
+
+.input form, .input form input{
+    width: 100%;
+    height: 3em;
+    padding: 0;
+    margin: 0;
+    display: block;
+    border-bottom: 0;
+
+}
+.input form input{
+    font-size: inherit;
+    padding-left: .3em;
+}
+#listcontainer{
+    position: absolute;
+    right: 2em;
+    bottom: .1em;
+    display: inline-block;
+}
+#userlist{
+    position: absolute;
+    top: 5em;
+
+    border: .07em solid black;
+    border-radius: .3em;
+    padding: .5em;
+    overflow: scroll;
+    max-height: 10em;
+    width: 12.6em;
+    background-color: white;
+    z-index: 0;
+    font-size: small;
+    text-decoration: none;
+    font-weight: normal;
+}
+.getlist{
+    position: relative;
+    height: 3em;
+    width: 15em;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    font-weight: 900;
+
+}
+.getlist:active, .active{
+    background-color: lightgray;
+}

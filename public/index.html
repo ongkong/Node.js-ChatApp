@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic ChatApp</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+</head>
+<body>
+<div class="splash">
+
+    <div class="header">
+
+            ChatApp
+
+        <div id="listcontainer">
+            <button class="getlist">User List</button>
+            <div id="userlist"> </div>
+
+        </div>
+    </div>
+    <div id="display"></div>
+    <div class="input">
+        <form id="sendform">
+            <input id="sendmsg" placeholder="type here.."/>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="Javascript/chatapp.js"></script>
+<script type="text/javascript" src="Javascript/chat.js"></script>
+<script type="text/javascript" src="Javascript/button.js"></script>
+</body>
+</html>
