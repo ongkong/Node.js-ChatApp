@@ -1,4 +1,4 @@
-var http = require('http'), fs = require('fs'), mime = require('./mime'), chatapp = require('./chatapp.js');
+var http = require('http'), fs = require('fs'), mime = require('./mime'), chatapp = require('./chatapp.js'), Mongoclient = require('mongodb').MongoClient;
 
 var error404 = function(res){
   res.writeHead(404, {'Content-Type': 'text/plain'});

@@ -13,4 +13,3 @@ var Chatapp = function(socket){
   };
   return that;
 };
-

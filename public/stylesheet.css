@@ -60,7 +60,14 @@ body, html{
     position: absolute;
     right: 2em;
     bottom: .1em;
-    display: inline-block;
+
+}
+#name{
+    position: absolute;
+    left:2em;
+    botton: .1em;
+    color: red;
+
 }
 #userlist{
     position: absolute;
