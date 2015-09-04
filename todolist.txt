@@ -1,0 +1,3 @@
+open link in new link
+display linkinfo.linklist elements w.o concatanation of http://
+add name in bright red

@@ -22,7 +22,15 @@ Array.prototype.remove = function(item){
 function handlesetup(socket){
   // when the client enters desired nickname
   socket.on('set name', function(name){
-    if (userlist.indexOf(name) === -1){ 
+		if (name.length>8){
+		// case when name length is too long	
+			socket.emit('name long');
+			console.log(socket.id + ' tried to enter name that\'s too long');
+		}  else if (userlist.indexOf(name) !== -1){
+		// case when name is already taken
+			socket.emit('name taken');
+      console.log(socket.id + ' tried to take name: ' + name);
+		}  else { 
       guestlist[socket.id] = name;
       socket.join('main room');
       console.log(guestlist[socket.id] + ' has joined the club!');
@@ -34,9 +42,6 @@ function handlesetup(socket){
       userlist.push(guestlist[socket.id]);
       socket.emit('user list', userlist, true);
       socket.broadcast.to('main room').emit('update list',guestlist[socket.id]);
-    }  else {
-      socket.emit('name taken');
-      console.log(socket.id + ' tried to take name: ' + name);
     }
   });
 };
@@ -44,7 +49,7 @@ function handlesetup(socket){
 function handleleave(socket){
   socket.on('disconnect', function(){
     if (guestlist[socket.id]){
-      console.log(guestlist[socket.id] + 'has disconnected');
+      console.log(guestlist[socket.id] + ' has disconnected');
       socket.broadcast.to('main room').emit('user disconnection', guestlist[socket.id]);
       userlist.remove(guestlist[socket.id]);
       socket.broadcast.to('main room').emit('user list', userlist, false);

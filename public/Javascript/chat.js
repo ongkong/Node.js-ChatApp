@@ -15,15 +15,23 @@ function checkname(){
   return false;
 };
 function sendmsg(){
+	var linkresults = parselinks(msg.value);
   if (msg.value.match(/<.+>|<.+\/>/)){
     alert('I heard what you\'re doing is bad. Not sure why though (XSS scripting?)');
-  }  else {
+		msg.value = '';
+  }  else if (linkresults.linklist.length > 0) {
+		// handles when a link is found
+		handlelink(linkresults);
+		console.log(linkresults.linklist, linkresults.regex, linkresults.regexindex);
+		return false;
+	}  else {
    // send the msg and move the scroll down
     chat.sendMessage(msg.value);
     display.insertAdjacentHTML('beforeend','<div>' + msg.value + '</div>');
     display.scrollTop = display.scrollHeight - display.clientHeight;
+		msg.value = '';
   }
-  msg.value = '';
+	console.log(linkresults.linklist, linkresults.regex, linkresults.regexindex);
   return false;
 };
 
@@ -37,6 +45,7 @@ socket.on('user disconnection', function(user){
 socket.on('user list', function(userlist, setup){
   if (setup){
     display.innerHTML= '<div>' + 'Your new name is ' +  msg.value + '</div>';
+		document.getElementById('name').textContent = msg.value;
     form.onsubmit = sendmsg;
     msg.value = '';
   }
@@ -55,8 +64,12 @@ socket.on('update list', function(user){
   list.insertAdjacentHTML('beforeend','<div>' + user + '</div>');
 });
 socket.on('name taken', function(){
-  display.innerHTML= '<div>That name is taken, enter another please</div>'
+  display.innerHTML= '<div>That name is taken, enter another one please</div>'
   msg.value = '';
+});
+socket.on('name long', function(){
+	display.innerHTML = '<div>That name is too long, enter another one please</div>'
+	msg.value = '';
 });
 
  // initial conditions

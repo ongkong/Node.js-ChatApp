@@ -6,8 +6,8 @@ A Chat application written in nodejs and vanilla javascript. Going to try to con
 - [x] Functioning file delivery mechanism
 - [x] File Mime detection
 - [x] Nickname identification
-- [ ] Unique Nicknames
+- [X] Unique Nicknames
 - [x] List of users in room
 - [x] Quick fadein/fadeout of user list when button clicked 
-- [ ] Link recognizer and configuration when sent as a chat message
-- [ ] Database integration
+- [X] Link recognizer and configuration when sent as a chat message
+- [X] Database integration

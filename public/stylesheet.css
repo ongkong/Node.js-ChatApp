@@ -64,15 +64,14 @@ body, html{
 }
 #name{
     position: absolute;
-    left:2em;
-    botton: .1em;
+    left:1em;
+    top: .1em;
     color: red;
 
 }
 #userlist{
     position: absolute;
     top: 5em;
-
     border: .07em solid black;
     border-radius: .3em;
     padding: .5em;
@@ -100,4 +99,25 @@ body, html{
 }
 .getlist:active, .active{
     background-color: lightgray;
+}
+#linkrename{
+    margin-left: 1em;
+    margin-bottom: .5em;
+    border: .1em solid black;
+    border-radius: .5em;
+    width: auto;
+    position: absolute;
+    bottom: 3em;
+    padding: .5em;
+}
+#linkrename label{
+    display: inline-block;
+    max-width: 6em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: .5em;
+}
+#linkrename input {
+    width: 8em;
+    margin-right: 2em;
 }

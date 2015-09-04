@@ -44,7 +44,7 @@ String.prototype.valid = function(link){
         string = string.replace(/([\/\$\\\^\*\+\?\.])/g,'\\$&');
         if (exclamremove) {
             //escapes out exclamation marks (special token to indicate sub-domain)
-            string.replace(/!(?=\\\.)/g,'');
+            string = string.replace(/!(?=\\\.)/g,'');
             return string;
         }  else  {
             return string;
